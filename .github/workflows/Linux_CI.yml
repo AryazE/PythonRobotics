@@ -29,9 +29,15 @@ jobs:
         python --version
         python -m pip install --upgrade pip
         python -m pip install -r requirements/requirements.txt
+    
+    - name: Instrument code
+      uses: AryazE/auto-dylin/instrument@main
+
     - name: do all unit tests
       run: bash runtests.sh
 
-
+    - name: Report
+      if: always()
+      uses: AryazE/auto-dylin/report@main
 
 
